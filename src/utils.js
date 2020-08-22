@@ -3,3 +3,4 @@ export const sortData = (data) => {
 
     return sortedData.sort((a,b) => (a.cases < b.cases));
 }
+

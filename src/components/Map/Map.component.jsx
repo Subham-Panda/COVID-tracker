@@ -3,7 +3,9 @@ import {Map as LeafletMap, TileLayer} from 'react-leaflet'
 
 import './Map.css'
 
-const Map = ({center, zoom}) => {
+import {showDataOnMap} from '../../utils'
+
+const Map = ({countries, center, zoom, caseType}) => {
     return (
         <div className="map">
             <LeafletMap center={center} zoom={zoom}>
@@ -11,8 +13,7 @@ const Map = ({center, zoom}) => {
                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
             />
-
-            {/* Loop thorugh and make circles for all countries */}
+            {showDataOnMap(countries, caseType)}
             </LeafletMap>
         </div>
     )

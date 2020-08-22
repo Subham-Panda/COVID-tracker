@@ -66,8 +66,28 @@ const buildChartData = (data, caseType='cases') => {
     return chartData;
 }
 
-const LineGraph = ({caseType}) => {
+// const getBGColor = (caseType) => {
+//     if(caseType === 'cases') {
+//         return "rgba(204,16,52,0.5)"
+//     } else if(caseType === 'recovered') {
+//         return "rgba(125,215,29,0.5)"
+//     } else return "rgba(251,68,67,0.5)"
+// }
+
+// const getBorderColor = (caseType) => {
+//     if(caseType === 'cases') {
+//         return "#cc1034"
+//     } else if(caseType === 'recovered') {
+//         return "#7dd71d"
+//     } else return "fb4443"
+// }
+
+const LineGraph = ({caseType, ...props}) => {
     const [data, setData] = useState({});
+
+    // const bgColor = getBGColor(caseType);
+    // const borderColor = getBorderColor(caseType);
+    // console.log(bgColor, borderColor)
 
     //https://disease.sh/v3​/covid-19​/historical​/all?lastdays=120
 
@@ -86,7 +106,7 @@ const LineGraph = ({caseType}) => {
 
 
     return (
-        <div>
+        <div className={props.className}>
             {data?.length > 0 && 
                 <Line
                     data = {{

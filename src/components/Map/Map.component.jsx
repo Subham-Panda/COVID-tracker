@@ -1,9 +1,19 @@
 import React from 'react';
+import {Map as LeafletMap, TileLayer} from 'react-leaflet'
 
-const Map = () => {
+import './Map.css'
+
+const Map = ({center, zoom}) => {
     return (
         <div className="map">
-            <h1>I am a Map</h1>
+            <LeafletMap center={center} zoom={zoom}>
+            <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+            />
+
+            {/* Loop thorugh and make circles for all countries */}
+            </LeafletMap>
         </div>
     )
 }
